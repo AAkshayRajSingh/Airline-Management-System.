@@ -40,4 +40,91 @@ create table reservation(pnr_no varchar(10), ticket_id varchar(10), f_code varch
 
 create table sector(flight_code varchar(20), capacity varchar(10), class_code varchar(5), class_name varchar(20));
 
+Airline Management System
+
+
+
+
+
+1.	Introduction
+The project “Airline Management System” comprises of a large number of flights which belong to a particular airline. The system we have implemented manages different objects viz.
+•	Airline
+•	Airline Employees
+•	Customers/Traveller
+Each of these accesses a database schema which has corresponding tables.Web services are used for middleware technology.
+2.	Individual Contributions
+Name	Contribution
+Name	●	DB tables creation and modification – FlightDetails, Person
+●	searching flights, update flights, display flight information, list all flights
+●	Code Integration
+Name	●	DB tables creation and modification – Traveller, Person, Reservation, Reservation details
+●	Reservation module – manage reservations, traveller, validations
+●	Object caching implementation
+●	Code Integration
+Name	●	DB tables creation and modification – Person, Employee
+●	Employee module: Create Employee, Delete employee, Update employee info, List/Display employee info, Search employees
+●	Project report preparation
+●	Test Harness
+●	Code Integration
+Name	●	DB tables creation and modification – Person, Payment
+●	DatabaseConnection Pooling – code implementation
+●	JMS Implementation
+●	Test Harness – Soap UI
+●	Code Integration
+Name	●	DB tables creation and modification 
+●	Profiling module – login, create user, update user, delete user, list customers
+●	Code Integration
+
+3.	Project Requirements
+Tier 1 – Client Requirements
+•	Airline management system client has all the functionalities listed as a part of requirements.
+•	A simple UI is used and appropriate error messages are displayed to the users wherever necessary. Some of us in the team have used a front end framework called Bootstrap which contains customizable style sheets and is a faster way to do client side coding.
+
+Tier 2 - Middleware
+•	We have clearly defined interfaces implementing all the required functionalities. 
+•	JDBC connection is established for select/insert/update data to database.
+•	JMS is used for publishing the status of flights to all the users who are online.
+
+Tier 3 – Database schema and database creation
+•	My SQL is used for designing our database. 
+The following tables are created in the database,
+Person, Employee, Traveller, Reservations, Reservation_Details, FlightDetails, Payment
+
+4.	Functional Requirements Implemented
+• Create a new employee
+• Delete an existing employee
+• Create a new Customer
+• Delete an existing Customer
+• Create a new reservation
+• Cancel an existing reservation
+• Issue a flight ticket
+• Payment options
+• List all customers known by the system
+• List all employees known by the system
+• List all reservation known by the system
+• List all flights known by the system
+• Change a employee/ customer information (name, address, etc) ability to change ALL attributes
+• Change a flights information (time, source, destination etc) change ALL attributes
+• Search for a employee based on attributes. 
+• Search for a flight based on attributes
+• Display information about a employee
+• Display information about a traveler
+• Display information about a flight
+
+5.	Non Functional Requirements -Scalability, Performance and Reliability
+•	Object caching is implemented for searching for flights(detailed explanation below)
+•	Database connection pooling is handled(detailed explanation below)
+•	The Person and Employee tables have 5000 records and we are successfully able to handle and show the data for such large number of records in our application.
+•	PreparedStatement is made use of in all the server methods to improve performance.
+•	SQL queries used to access the database are tuned. Some of the things we have focussed on include: Not using Like predicate in queries, using ‘=’ instead of IN when only one record has to be retrieved, using specific column names in select instead of *.
+•	We have tested the flow of all the modules so that nothing crashes thus ensuring reliability
+
+6.	Testing
+Test Harness
+We have used Soap UI to test the performance of web services.When a new project is created, we give our wsdl and then add test steps for a specific method. We run the test against certain number of count.
+
+The below screenshots show the test harness results for payment and update flightstatus,
+
+
+
 
